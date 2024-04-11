@@ -1,0 +1,17 @@
+#ifndef _CONSTANTES_H
+#define _CONSTANTES_H
+
+#define TAM_ID_LESAO 11
+#define TAM_DIAG_LESAO 101
+#define TAM_REGIAO_LESAO 101
+#define TAM_CARTAO_SUS 19
+
+#define TAM_NOME 101
+#define TAM_DATA_NASC 12
+#define TAM_CARTAO_SUS 19
+#define TAM_QTDD_LESOES 10
+
+#define TAM_BANCO_PACIENTES 100
+
+
+#endif
