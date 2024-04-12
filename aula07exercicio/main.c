@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include "lesao.h"
 #include "paciente.h"
+#include "banco.h"
 
 int main(void)
 {
     char op;
-    tPaciente bancoPacientes[TAM_BANCO_PACIENTES];
-    int qtddPacBanco = 0;
+    tBanco bancoPacientes = CriaBanco();
 
     while(1)
     {
@@ -14,9 +14,9 @@ int main(void)
         if (op == 'P')
         {
             tPaciente paciente = LerPaciente();
-            bancoPacientes[qtddPacBanco] = paciente;
-            qtddPacBanco++;
-            PrintPaciente(paciente);
+            IncluirPacienteBanco(&bancoPacientes, paciente);
+            PrintPaciente(bancoPacientes.pacs[bancoPacientes.qtddPacs - 1]); //quebra da opacidade do TAD
+            printf("---- QTDD DE PACS NO BANCO: %d\n", bancoPacientes.qtddPacs); //quebra da opacidade do TAD
         }
         else if (op == 'L')
         {

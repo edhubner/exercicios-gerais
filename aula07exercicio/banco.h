@@ -9,6 +9,7 @@ typedef struct{
     int qtddPacs;
 }tBanco;
 
-void incluirPacienteBanco (tBanco banco, tPaciente pac);
+tBanco CriaBanco();
+void IncluirPacienteBanco (tBanco *banco, tPaciente pac);
 
 #endif

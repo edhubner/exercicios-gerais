@@ -1,7 +1,14 @@
 #include "banco.h"
 
-void incluirPacienteBanco (tBanco banco, tPaciente pac)
+tBanco CriaBanco()
 {
-    banco.pacs[banco.qtddPacs] = pac;
-    banco.qtddPacs++;
+    tBanco banco;
+    banco.qtddPacs = 0;
+    return banco;
+}
+
+void IncluirPacienteBanco (tBanco *banco, tPaciente pac)
+{
+    (*banco).pacs[(*banco).qtddPacs] = pac;
+    (*banco).qtddPacs++;
 }
