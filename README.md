@@ -1,3 +1,8 @@
+# NOTAS
+    - **Link para o exercicio da AULA 07:**: https://drive.google.com/drive/folders/1zG2Q90wZSR-JvjckkJzp97jr5uUH0Fq_?usp=sharing
+
+
+
 # Exercícios gerais
 
 Este repositório contém os exercícios que serão utilizados durante a disciplina de Programação II :balloon:	
