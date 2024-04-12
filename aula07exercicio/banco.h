@@ -5,10 +5,10 @@
 #include "constantes.h"
 
 typedef struct{
-    tPaciente pacs[];
-    int qtdPacs;
+    tPaciente pacs[TAM_BANCO_PACIENTES];
+    int qtddPacs;
 }tBanco;
 
-void incluirPacienteBanco (tBanco banco, Paciente pac);
+void incluirPacienteBanco (tBanco banco, tPaciente pac);
 
 #endif

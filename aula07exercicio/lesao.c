@@ -18,5 +18,5 @@ void PrintLesao(tLesao les){
     printf("les.id: %s\n", les.id);
     printf("les.diag: %s\n", les.diag);
     printf("les.regiao: %s\n", les.regiao);
-    printf("les.malig: %d\n-\n", les.malig);
+    printf("les.malig: %d\n----------\n", les.malig);
 }

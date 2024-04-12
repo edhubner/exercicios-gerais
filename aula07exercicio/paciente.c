@@ -14,8 +14,8 @@ tPaciente LerPaciente()
 
 void PrintPaciente(tPaciente paciente)
 {
-    printf("PACIENTE\n%s\n", paciente.dataNasc);
+    printf("PACIENTE\npaciente.dataNasc: %s\n", paciente.dataNasc);
     printf("paciente.cartaoSUS: %s\n", paciente.cartaoSUS);
     printf("paciente.genero: %c\n", paciente.genero);
-    printf("paciente.nome: %s\n-\n", paciente.nome);
+    printf("paciente.nome: %s\n----------\n", paciente.nome);
 }

@@ -25,7 +25,8 @@ int main(void)
         }
         else if (op == 'F')
         {
-
+            //ExibeCadastros();
+            break;
         }
         else
         {
