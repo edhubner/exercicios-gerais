@@ -10,6 +10,7 @@ typedef struct {
     char cartaoSUS[TAM_CARTAO_SUS];
     char genero;
     tLesao lesoes[TAM_QTDD_LESOES];
+    int qtddLesoes;
 } tPaciente;
 
 tPaciente LerPaciente();
@@ -17,3 +18,5 @@ tPaciente LerPaciente();
 void PrintPaciente(tPaciente paciente);
 
 #endif
+
+

@@ -8,6 +8,7 @@ tPaciente LerPaciente()
     scanf("%[^\n]\n", paciente.dataNasc);
     scanf("%[^\n]\n", paciente.cartaoSUS);
     scanf("%c\n", &paciente.genero);
+    paciente.qtddLesoes = 0; // Considerando que o mesmo paciente nao sera cadastrado mais de uma vez
 
     return paciente;
 }

@@ -12,7 +12,6 @@ typedef struct {
 } tLesao;
 
 tLesao LerLesao();
-
 void PrintLesao(tLesao les);
 
 #endif

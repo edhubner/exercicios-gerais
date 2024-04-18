@@ -11,5 +11,6 @@ typedef struct{
 
 tBanco CriaBanco();
 void IncluirPacienteBanco (tBanco *banco, tPaciente pac);
+int IncluirLesaoPaciente(tBanco *banco, tLesao les);
 
 #endif

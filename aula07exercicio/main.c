@@ -1,7 +1,7 @@
 #include <stdio.h>
+#include "banco.h"
 #include "lesao.h"
 #include "paciente.h"
-#include "banco.h"
 
 int main(void)
 {
@@ -21,7 +21,13 @@ int main(void)
         else if (op == 'L')
         {
             tLesao les = LerLesao();
-            PrintLesao(les);
+            int pacIndex = IncluirLesaoPaciente(&bancoPacientes, les);
+            if (pacIndex == -1)
+            {
+                printf("-- ERRO: Paciente nao encontrado ao tentar cadastrar lesao.\n");
+                return -1;
+            }
+            PrintLesao(bancoPacientes.pacs[pacIndex].lesoes[bancoPacientes.pacs[pacIndex].qtddLesoes - 1]);
         }
         else if (op == 'F')
         {
