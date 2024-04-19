@@ -31,7 +31,7 @@ int main(void)
         }
         else if (op == 'F')
         {
-            //ExibeCadastros();
+            ExibeCadastros(bancoPacientes);
             break;
         }
         else
