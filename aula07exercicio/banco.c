@@ -27,8 +27,8 @@ int IncluirLesaoPaciente(tBanco *banco, tLesao les)
         {
             (*banco).pacs[i].lesoes[(*banco).pacs[i].qtddLesoes] = les;
             (*banco).pacs[i].qtddLesoes++;
+            return i;
         }
-        return i;
     }
     return -1;
 }
@@ -46,8 +46,8 @@ int TotalDeLes(tBanco banco)
     for (int i = 0; i < banco.qtddPacs; i++)
     {
         totalLes += banco.pacs[i].qtddLesoes;
-        PrintPaciente(banco.pacs[i]); // APGAR                                                                      //////////////////////////////////
-        printf("\t\t ---> LESAO: %d\n", banco.pacs[i].qtddLesoes); // APAGAR                                        //////////////////////////////////
+        //PrintPaciente(banco.pacs[i]); // APGAR                                                                      //////////////////////////////////
+        //printf("\t\t ---> LESAO: %d\n", banco.pacs[i].qtddLesoes); // APAGAR                                        //////////////////////////////////
     }
 
     return totalLes;
@@ -75,7 +75,13 @@ void ExibeCadastros(tBanco banco)
     printf("MEDIA IDADE (ANOS): %d\n", MediaIdadePacs(banco));
     printf("TOTAL LESOES: %d\n", TotalDeLes(banco));
     printf("TOTAL CIRURGIAS: %d\n", TotalCirurgias(banco));
-    //for (int i = 0; i < )
-        //printf("LISTA DE PACIENTES:
-        //printf("- TRISTANA - L8
+    printf("LISTA DE PACIENTES:\n");
+    for (int i = 0; i < banco.qtddPacs; i++)
+    {
+        for (int j = 0; j < banco.pacs[i].qtddLesoes; j++)
+        {
+            printf("- %s - %s\n", banco.pacs[i].nome, banco.pacs[i].lesoes[j].id);
+        }
+    }
+
 }

@@ -15,8 +15,8 @@ int main(void)
         {
             tPaciente paciente = LerPaciente();
             IncluirPacienteBanco(&bancoPacientes, paciente);
-            PrintPaciente(bancoPacientes.pacs[bancoPacientes.qtddPacs - 1]); //quebra da opacidade do TAD
-            printf("---- QTDD DE PACS NO BANCO: %d\n", bancoPacientes.qtddPacs); //quebra da opacidade do TAD
+            //PrintPaciente(bancoPacientes.pacs[bancoPacientes.qtddPacs - 1]); //quebra da opacidade do TAD
+            //printf("---- QTDD DE PACS NO BANCO: %d\n", bancoPacientes.qtddPacs); //quebra da opacidade do TAD
         }
         else if (op == 'L')
         {
@@ -27,7 +27,8 @@ int main(void)
                 printf("-- ERRO: Paciente nao encontrado ao tentar cadastrar lesao.\n");
                 return -1;
             }
-            PrintLesao(bancoPacientes.pacs[pacIndex].lesoes[bancoPacientes.pacs[pacIndex].qtddLesoes - 1]);
+            //printf("\t\t ----- LESAO NO BANCO\n");
+            //PrintLesao(bancoPacientes.pacs[pacIndex].lesoes[bancoPacientes.pacs[pacIndex].qtddLesoes - 1]);
         }
         else if (op == 'F')
         {
