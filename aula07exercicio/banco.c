@@ -71,7 +71,11 @@ int MediaIdadePacs(tBanco banco)
     {
         media += CalculaIdadePac(banco.pacs[i]);
     }
-    media /= banco.qtddPacs;
+
+    if (banco.qtddPacs > 0)
+        media /= banco.qtddPacs;
+    else
+        media = 0;
 
     return media;
 }
@@ -110,12 +114,13 @@ void ExibeCadastros(tBanco banco)
     printf("MEDIA IDADE (ANOS): %d\n", MediaIdadePacs(banco));
     printf("TOTAL LESOES: %d\n", TotalDeLes(banco));
     printf("TOTAL CIRURGIAS: %d\n", TotalCirurgias(banco));
-    printf("LISTA DE PACIENTES:\n");
+    printf("LISTA DE PACIENTES:");
     for (int i = 0; i < banco.qtddPacs; i++)
     {
-        for (int j = 0; j < banco.pacs[i].qtddLesoes; j++)
+                for (int j = 0; j < banco.pacs[i].qtddLesoes; j++)
         {
-            printf("- %s - %s\n", banco.pacs[i].nome, banco.pacs[i].lesoes[j].id);
+            printf("\n");
+            printf("- %s - %s", banco.pacs[i].nome, banco.pacs[i].lesoes[j].id);
         }
     }
 

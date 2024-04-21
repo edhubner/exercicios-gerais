@@ -22,11 +22,8 @@ int main(void)
         {
             tLesao les = LerLesao();
             int pacIndex = IncluirLesaoPaciente(&bancoPacientes, les);
-            if (pacIndex == -1)
-            {
-                printf("-- ERRO: Paciente nao encontrado ao tentar cadastrar lesao.\n");
-                return -1;
-            }
+            //if (pacIndex == -1)
+                //printf("-- ERRO: Paciente nao encontrado ao tentar cadastrar lesao.\n");
             //printf("\t\t ----- LESAO NO BANCO\n");
             //PrintLesao(bancoPacientes.pacs[pacIndex].lesoes[bancoPacientes.pacs[pacIndex].qtddLesoes - 1]);
         }
