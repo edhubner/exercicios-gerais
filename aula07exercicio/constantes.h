@@ -13,5 +13,7 @@
 
 #define TAM_BANCO_PACIENTES 100
 
+#define DATA_ATUAL "12/09/2023"
+
 
 #endif

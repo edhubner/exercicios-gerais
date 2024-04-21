@@ -10,6 +10,8 @@ tPaciente LerPaciente()
     scanf("%c\n", &paciente.genero);
     paciente.qtddLesoes = 0; // Considerando que o mesmo paciente nao sera cadastrado mais de uma vez
 
+                                                                                                       // VERIFICAR SE O PACIENTE JÁ EXISTE NO BANCO 
+
     return paciente;
 }
 

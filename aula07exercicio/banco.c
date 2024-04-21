@@ -11,14 +11,19 @@ tBanco CriaBanco()
     return banco;
 }
 
+typedef struct{
+    int dia;
+    int mes;
+    int ano;
+} tData;
+
 void IncluirPacienteBanco(tBanco *banco, tPaciente pac)
 {
     (*banco).pacs[(*banco).qtddPacs] = pac;
     (*banco).qtddPacs++;
 }
 
-// PROBLEMA NA ATUALIZACAO DA QTDD DE LESOES DO PACIENTE                                                            //////////////////////////////////
-// Retorna o indice do paciente em que a lesao foi cadastrada. Retorna -1 se nao tiver encontrado paciente.
+// Retorna o indice do paciente em que a lesao foi cadastrada. Retorna -1 se nao tiver encontrado paciente.     ///// CRIAR NOVO PACIENTE EM CASO DE NAO EXISTIR//
 int IncluirLesaoPaciente(tBanco *banco, tLesao les)
 {
     for (int i = 0; i < (*banco).qtddPacs; i++)
@@ -33,10 +38,42 @@ int IncluirLesaoPaciente(tBanco *banco, tLesao les)
     return -1;
 }
 
+tData StringToDate(char *sDate)
+{
+    tData data;
+    sscanf(sDate, "%d/%d/%d", &data.dia, &data.mes, &data.ano);
+    return data;
+}
+
+int CalculaIdadePac(tPaciente pac)
+{
+    tData d1 = StringToDate(DATA_ATUAL);
+    tData d2 = StringToDate(pac.dataNasc);
+    
+    if ((d1.mes > d2.mes) || (d1.mes == d2.mes && d1.dia >= d2.dia))
+    {
+        return d1.ano - d2.ano;
+    }
+    else
+    {
+        if ((d1.ano - d2.ano) == 0)
+            return 0;
+        else
+            return d1.ano - d2.ano - 1;
+    }
+}
+
 int MediaIdadePacs(tBanco banco)
 {
-    //PENDENTE                                                                                                      //////////////////////////////////
-    return 9999;
+    int media = 0;
+
+    for (int i = 0; i < banco.qtddPacs; i++)
+    {
+        media += CalculaIdadePac(banco.pacs[i]);
+    }
+    media /= banco.qtddPacs;
+
+    return media;
 }
 
 int TotalDeLes(tBanco banco)
@@ -46,8 +83,6 @@ int TotalDeLes(tBanco banco)
     for (int i = 0; i < banco.qtddPacs; i++)
     {
         totalLes += banco.pacs[i].qtddLesoes;
-        //PrintPaciente(banco.pacs[i]); // APGAR                                                                      //////////////////////////////////
-        //printf("\t\t ---> LESAO: %d\n", banco.pacs[i].qtddLesoes); // APAGAR                                        //////////////////////////////////
     }
 
     return totalLes;
@@ -71,7 +106,7 @@ int TotalCirurgias(tBanco banco)
 
 void ExibeCadastros(tBanco banco)
 {
-    printf("\n\n\n\nTOTAL DE PACIENTES: %d\n", banco.qtddPacs); //retirar os /n                                 //////////////////////////////////
+    printf("TOTAL PACIENTES: %d\n", banco.qtddPacs);
     printf("MEDIA IDADE (ANOS): %d\n", MediaIdadePacs(banco));
     printf("TOTAL LESOES: %d\n", TotalDeLes(banco));
     printf("TOTAL CIRURGIAS: %d\n", TotalCirurgias(banco));

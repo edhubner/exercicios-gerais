@@ -14,7 +14,6 @@ typedef struct {
 } tPaciente;
 
 tPaciente LerPaciente();
-
 void PrintPaciente(tPaciente paciente);
 
 #endif
