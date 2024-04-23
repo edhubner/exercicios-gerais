@@ -23,7 +23,7 @@ void IncluirPacienteBanco(tBanco *banco, tPaciente pac)
     (*banco).qtddPacs++;
 }
 
-// Retorna o indice do paciente em que a lesao foi cadastrada. Retorna -1 se nao tiver encontrado paciente.     ///// CRIAR NOVO PACIENTE EM CASO DE NAO EXISTIR//
+// Retorna o indice do paciente em que a lesao foi cadastrada. Retorna -1 se nao tiver encontrado paciente.
 int IncluirLesaoPaciente(tBanco *banco, tLesao les)
 {
     for (int i = 0; i < (*banco).qtddPacs; i++)
