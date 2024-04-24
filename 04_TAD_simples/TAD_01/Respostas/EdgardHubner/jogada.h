@@ -45,4 +45,7 @@ int ObtemJogadaY(tJogada jogada);
  */
 int FoiJogadaBemSucedida(tJogada jogada);
 
+//Imprime a jogada
+void ImprimeJogada (tJogada jogada);
+
 #endif

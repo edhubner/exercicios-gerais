@@ -25,6 +25,7 @@ tJogada LeJogada()
         jogada.x = x;
         jogada.y = y;
     }
+    return jogada;
 }
 
 
@@ -35,7 +36,10 @@ tJogada LeJogada()
  * 
  * @return a coordenada X da jogada.
  */
-int ObtemJogadaX(tJogada jogada);
+int ObtemJogadaX(tJogada jogada)
+{
+    return jogada.x;
+}
 
 
 /**
@@ -45,7 +49,10 @@ int ObtemJogadaX(tJogada jogada);
  * 
  * @return a coordenada Y da jogada.
  */
-int ObtemJogadaY(tJogada jogada);
+int ObtemJogadaY(tJogada jogada)
+{
+    return jogada.y;
+}
 
 
 /**
@@ -59,6 +66,11 @@ int FoiJogadaBemSucedida(tJogada jogada)
 {
     if (jogada.sucesso == 0)
         return 0;
+    else
+        return 1;    
+}
 
-    
+void ImprimeJogada (tJogada jogada)
+{
+    printf(">>> JOGADA <<<<\n\tX: %d\n\tY: %d\n\tSucesso: %d\n", jogada.x, jogada.y, jogada.sucesso);
 }
