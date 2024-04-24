@@ -11,6 +11,7 @@ typedef struct{
 
 tBanco CriaBanco();
 void IncluirPacienteBanco (tBanco *banco, tPaciente pac);
+// Retorna o indice do paciente em que a lesao foi cadastrada. Retorna -1 se nao tiver encontrado paciente.
 int IncluirLesaoPaciente(tBanco *banco, tLesao les);
 void ExibeCadastros(tBanco banco);
 
