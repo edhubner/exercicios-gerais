@@ -20,7 +20,7 @@ int main (void)
         ImprimeTabuleiro(tab);
 
         printf("Jogar novamente? (s,n)\n");
-        scanf("%c", &op);
+        scanf("\n%c", &op);
 
         if (op == 'n' || op == 'N')
             break;

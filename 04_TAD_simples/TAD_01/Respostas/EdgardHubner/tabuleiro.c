@@ -36,19 +36,20 @@ tTabuleiro CriaTabuleiro()
  */
 tTabuleiro MarcaPosicaoTabuleiro(tTabuleiro tabuleiro, int peca, int x, int y)
 {
-    if(!EstaLivrePosicaoTabuleiro(tabuleiro, x, y))
-    {
-        printf("Posicao ocupada!\n");
-        return tabuleiro;
-    }
     if(!EhPosicaoValidaTabuleiro(x, y))
     {
         printf("Posicao invalida!\n");
         return tabuleiro;
     }
     
+    if(!EstaLivrePosicaoTabuleiro(tabuleiro, x, y))
+    {
+        printf("Posicao ocupada!\n");
+        return tabuleiro;
+    }
+
     char pecaJogador;
-    if (peca = PECA_1)
+    if (peca == PECA_1)
         pecaJogador = tabuleiro.peca1;
     else
         pecaJogador = tabuleiro.peca2;
