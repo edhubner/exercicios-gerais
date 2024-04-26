@@ -6,29 +6,55 @@
 
 int main (void)
 {
-    int temp = 1;                                                                       // teste
     char op;
     tTabuleiro tab = CriaTabuleiro();
-    tJogada jogada;
+    tJogador j1 = CriaJogador(ID_JOGADOR_1);
+    tJogador j2 = CriaJogador(ID_JOGADOR_2);
+    int win = 0;
+
+    tJogador temp = j1;                                                                       // teste
+
+    //tJogada jogada;
 
     while (1)
     {
-        jogada = LeJogada();
+        //jogada = LeJogada();
         //ImprimeJogada(jogada);
 
-        tab = MarcaPosicaoTabuleiro(tab, temp, jogada.x, jogada.y);                     // quebra do TAD OPACO
+        tab = JogaJogador(temp, tab);
+        //tab = MarcaPosicaoTabuleiro(tab, temp, jogada.x, jogada.y);                     // quebra do TAD OPACO
         ImprimeTabuleiro(tab);
 
-        printf("Jogar novamente? (s,n)\n");
-        scanf("\n%c", &op);
-
-        if (op == 'n' || op == 'N')
-            break;
-
-        if (temp == 1)                                                                  // teste
-            temp = 2;
+        if (temp.id == j1.id)                                                                  // teste
+            temp = j2;
         else
-            temp = 1;        
+            temp = j1;
+
+        if (VenceuJogador(j1, tab))
+            win = 1;
+        else if (VenceuJogador(j2, tab))
+            win = 2;
+        else
+            win = 0;
+
+        if (!TemPosicaoLivreTabuleiro(tab) ||  win)
+        {
+            if (win)
+                printf("Jogador %d venceu!!!!\n", win);
+            else
+                printf("Empate!\n");
+
+            printf("Jogar novamente? (s,n)\n");
+            scanf("\n%c", &op);
+
+            if (op == 'n' || op == 'N')
+                break;
+            else
+            {
+                tab = CriaTabuleiro();
+                temp = j1;
+            }
+        }
     }
 
     return 0;
