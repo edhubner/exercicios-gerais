@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "jogador.h"
 #include "tabuleiro.h"
 #include "jogada.h"
@@ -27,7 +28,22 @@ tJogador CriaJogador(int idJogador)
  */
 tTabuleiro JogaJogador(tJogador jogador, tTabuleiro tabuleiro)
 {
-    tJogada jogada = LeJogada();
+    tJogada jogada;
+
+    while (1)
+    {
+        printf("Jogador %d\nDigite uma posicao (x e y): ", jogador.id);
+        jogada = LeJogada();
+        ImprimeJogada(jogada);
+        
+        if(!EhPosicaoValidaTabuleiro(jogada.x, jogada.y))
+            printf("Posicao invalida (FORA DO TABULEIRO - [%d,%d] )!\n", jogada.x, jogada.y);
+        else if(!EstaLivrePosicaoTabuleiro(tabuleiro, jogada.x, jogada.y))
+            printf("Posicao invalida (OCUPADA - [%d,%d] )!\n", jogada.x, jogada.y);
+        else
+            break;
+    }
+
     tabuleiro = MarcaPosicaoTabuleiro(tabuleiro, jogador.id, ObtemJogadaX(jogada), ObtemJogadaY(jogada));
     return tabuleiro;
 }

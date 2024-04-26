@@ -72,5 +72,5 @@ int FoiJogadaBemSucedida(tJogada jogada)
 
 void ImprimeJogada (tJogada jogada)
 {
-    printf(">>> JOGADA <<<<\n\tX: %d\n\tY: %d\n\tSucesso: %d\n", jogada.x, jogada.y, jogada.sucesso);
+    printf("\nJogada [%d,%d]!\n", jogada.x, jogada.y);
 }
