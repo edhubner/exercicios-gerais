@@ -42,7 +42,7 @@ tTabuleiro MarcaPosicaoTabuleiro(tTabuleiro tabuleiro, int peca, int x, int y)
     else
         pecaJogador = tabuleiro.peca2;
 
-    tabuleiro.posicoes[x][y] = pecaJogador;
+    tabuleiro.posicoes[y][x] = pecaJogador;
 
     return tabuleiro;
 }
@@ -87,7 +87,7 @@ int EstaMarcadaPosicaoPecaTabuleiro(tTabuleiro tabuleiro, int x, int y, int peca
     else
         pecaJogador = tabuleiro.peca2;
 
-    if (tabuleiro.posicoes[x][y] == pecaJogador)
+    if (tabuleiro.posicoes[y][x] == pecaJogador)
         return 1;
     else
         return 0;
@@ -105,7 +105,7 @@ int EstaMarcadaPosicaoPecaTabuleiro(tTabuleiro tabuleiro, int x, int y, int peca
  */
 int EstaLivrePosicaoTabuleiro(tTabuleiro tabuleiro, int x, int y)
 {
-    if (tabuleiro.posicoes[x][y] == tabuleiro.pecaVazio)
+    if (tabuleiro.posicoes[y][x] == tabuleiro.pecaVazio)
         return 1;
     else
         return 0;

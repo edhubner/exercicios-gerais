@@ -32,16 +32,18 @@ tTabuleiro JogaJogador(tJogador jogador, tTabuleiro tabuleiro)
 
     while (1)
     {
-        printf("Jogador %d\nDigite uma posicao (x e y): ", jogador.id);
+        printf("Jogador %d\nDigite uma posicao (x e y):", jogador.id);
         jogada = LeJogada();
-        ImprimeJogada(jogada);
         
         if(!EhPosicaoValidaTabuleiro(jogada.x, jogada.y))
-            printf("Posicao invalida (FORA DO TABULEIRO - [%d,%d] )!\n", jogada.x, jogada.y);
+            printf("\nPosicao invalida (FORA DO TABULEIRO - [%d,%d] )!\n", jogada.x, jogada.y);
         else if(!EstaLivrePosicaoTabuleiro(tabuleiro, jogada.x, jogada.y))
-            printf("Posicao invalida (OCUPADA - [%d,%d] )!\n", jogada.x, jogada.y);
+            printf("\nPosicao invalida (OCUPADA - [%d,%d] )!\n", jogada.x, jogada.y);
         else
+        {
+            ImprimeJogada(jogada);
             break;
+        }
     }
 
     tabuleiro = MarcaPosicaoTabuleiro(tabuleiro, jogador.id, ObtemJogadaX(jogada), ObtemJogadaY(jogada));
