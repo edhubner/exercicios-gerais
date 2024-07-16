@@ -68,11 +68,24 @@ void ExibeEstatisticas(tCampeonato nba) {
             }
         }
 
-        aprov = (float) vitorias * 100 / (vitorias + derrotas);
+        if ((vitorias + derrotas) == 0)
+            aprov = 0.0;
+        else
+            aprov = (float) vitorias * 100 / (vitorias + derrotas);
+
         printf("%s [C", nba.times[i].nome);
         printf("%c] %d %d %.2f %d %d\n", nba.times[i].conf[0], vitorias, derrotas, aprov, vitCasa, vitorias - vitCasa);
     }
-    // Problema div 0!SS
-    printf("LESTE %d %d %.2f\n", vitLeste, derLeste, ((float) vitLeste * 100 / (vitLeste + derLeste)));
-    printf("OESTE %d %d %.2f\n", vitOeste, derOeste, ((float) vitOeste * 100 / (vitOeste + derOeste)));
+    
+    if (vitLeste == 0)
+        aprov = 0.0;
+    else
+        aprov = (float) vitLeste * 100 / (vitLeste + derLeste);
+    printf("LESTE %d %d %.2f\n", vitLeste, derLeste, aprov);
+
+    if (vitOeste == 0)
+        aprov = 0.0;
+    else
+        aprov = (float) vitOeste * 100 / (vitOeste + derOeste);
+    printf("OESTE %d %d %.2f\n", vitOeste, derOeste, aprov);
 }
