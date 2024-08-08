@@ -91,5 +91,5 @@ void ExecutaBotao(Botao b) {
  * @param idx Índice do botão na tela em que será desenhado.
  */
 void DesenhaBotao(Botao b, int idx) {
-    printf("- Botao [%d]:\n(%s | %s | %d | %d)\n", idx, b.texto, b.corHex, b.tamFonte, b.tipo);
+    printf("-------------\n- Botao [%d]:\n(%s | %s | %d | %d)\n-------------\n", idx, b.texto, b.corHex, b.tamFonte, b.tipo);
 }
