@@ -1,0 +1,4 @@
+tela.c: In function ‘OuvidorEventosTela’:
+tela.c:60:10: warning: unused variable ‘evento’ [-Wunused-variable]
+   60 |     char evento[20];
+      |          ^~~~~~

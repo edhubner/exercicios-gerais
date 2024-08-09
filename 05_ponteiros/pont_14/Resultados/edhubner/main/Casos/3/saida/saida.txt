@@ -1,0 +1,2 @@
+- Escolha sua acao: - Executando o botao com evento de longo click
+- Botao de OPCOES ativado!
