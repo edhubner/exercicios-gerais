@@ -1,0 +1,39 @@
+==52549== Memcheck, a memory error detector
+==52549== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==52549== Using Valgrind-3.20.0 and LibVEX; rerun with -h for copyright info
+==52549== Command: Resultados/edhubner/gerenciador/prog Resultados/edhubner/gerenciador/Casos/6
+==52549== Parent PID: 52548
+==52549== 
+==52549== 
+==52549== Process terminating with default action of signal 8 (SIGFPE)
+==52549==  Integer divide by zero at address 0x1002E97CB0
+==52549==    at 0x109646: calculaMediaIdadePacientesBancoGerenciador (in /home/hubner/prog2ufes/exercicios-gerais/ea2/Resultados/edhubner/gerenciador/prog)
+==52549==    by 0x109770: imprimeRelatorioGerenciador (in /home/hubner/prog2ufes/exercicios-gerais/ea2/Resultados/edhubner/gerenciador/prog)
+==52549==    by 0x1099A4: main (in /home/hubner/prog2ufes/exercicios-gerais/ea2/Resultados/edhubner/gerenciador/prog)
+==52549== 
+==52549== HEAP SUMMARY:
+==52549==     in use at exit: 8,489 bytes in 10 blocks
+==52549==   total heap usage: 10 allocs, 0 frees, 8,489 bytes allocated
+==52549== 
+==52549== 19 bytes in 1 blocks are definitely lost in loss record 5 of 10
+==52549==    at 0x4840808: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==52549==    by 0x1094C6: preencheBancoPacientesGerenciador (in /home/hubner/prog2ufes/exercicios-gerais/ea2/Resultados/edhubner/gerenciador/prog)
+==52549==    by 0x109998: main (in /home/hubner/prog2ufes/exercicios-gerais/ea2/Resultados/edhubner/gerenciador/prog)
+==52549== 
+==52549== 242 (32 direct, 210 indirect) bytes in 1 blocks are definitely lost in loss record 8 of 10
+==52549==    at 0x4840808: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==52549==    by 0x10982B: leLesao (in /home/hubner/prog2ufes/exercicios-gerais/ea2/Resultados/edhubner/gerenciador/prog)
+==52549==    by 0x1094EF: preencheBancoPacientesGerenciador (in /home/hubner/prog2ufes/exercicios-gerais/ea2/Resultados/edhubner/gerenciador/prog)
+==52549==    by 0x109998: main (in /home/hubner/prog2ufes/exercicios-gerais/ea2/Resultados/edhubner/gerenciador/prog)
+==52549== 
+==52549== LEAK SUMMARY:
+==52549==    definitely lost: 51 bytes in 2 blocks
+==52549==    indirectly lost: 210 bytes in 3 blocks
+==52549==      possibly lost: 0 bytes in 0 blocks
+==52549==    still reachable: 8,228 bytes in 5 blocks
+==52549==         suppressed: 0 bytes in 0 blocks
+==52549== Reachable blocks (those to which a pointer was found) are not shown.
+==52549== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==52549== 
+==52549== For lists of detected and suppressed errors, rerun with: -s
+==52549== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
