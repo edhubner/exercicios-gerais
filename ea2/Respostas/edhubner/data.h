@@ -2,12 +2,7 @@
 #ifndef _DATA_H
 #define _DATA_H
 
-typedef struct
-{
-    int dia;
-    int mes;
-    int ano;
-} Data;
+typedef struct Data Data;
 
 /*
 Função que cria a estrutura Data (alocando memória), lê os valores da entrada padrão

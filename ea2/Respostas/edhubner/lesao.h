@@ -6,13 +6,7 @@
 #define TAM_DIAG 100
 #define TAM_REG 100
 
-typedef struct
-{
-    char *id;        // salva o id da lesão
-    char *diag;      // salva o diagnóstico da lesão
-    char *regiao;    // salva a região da lesão
-    int malignidade; // salva o grau de malignidade da lesão
-} Lesao;
+typedef struct Lesao Lesao;
 
 /*
 Função que cria uma estrutura Lesao (alocando memória para o que for necessário), lê os valores da entrada padrão

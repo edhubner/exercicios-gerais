@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include "data.h"
 
+struct Data {
+    int dia;
+    int mes;
+    int ano;
+};
+
 /*
 Função que cria a estrutura Data (alocando memória), lê os valores da entrada padrão
 de acordo com a descrição, e retorna o ponteiro para a estrutura criada.

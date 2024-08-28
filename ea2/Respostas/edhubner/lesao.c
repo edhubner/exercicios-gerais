@@ -2,6 +2,14 @@
 #include <stdio.h>
 #include "lesao.h"
 
+struct Lesao {
+    char *id;        // salva o id da lesão
+    char *diag;      // salva o diagnóstico da lesão
+    char *regiao;    // salva a região da lesão
+    int malignidade; // salva o grau de malignidade da lesão
+};
+
+
 /*
 Função que cria uma estrutura Lesao (alocando memória para o que for necessário), lê os valores da entrada padrão
 de acordo com a descrição, e retorna o ponteiro para a estrutura criada.

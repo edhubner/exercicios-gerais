@@ -2,6 +2,16 @@
 #include <stdlib.h>
 #include "paciente.h"
 
+struct Paciente {
+    char *nome;            // salva o nome do paciente
+    Data *dataNasc;        // salva a data de nascimento do paciente
+    char *cartaoSus;       // salva o cartão do SUS do paciente
+    char genero;           // salva o gênero do paciente
+    Lesao **lesoes;        // salva as lesões do paciente
+    int qtdLesoes;         // salva a quantidade de lesões do paciente
+    int qtdLesoesAlocadas; // controla a quantidade de lesões alocadas
+};
+
 /*
 Função que cria uma estrutura Paciente (alocando memória para o que for necessário), lê os valores da entrada padrão
 de acordo com a descrição, e retorna o ponteiro para a estrutura criada.

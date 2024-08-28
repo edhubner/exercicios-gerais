@@ -10,12 +10,7 @@
 
 #include "paciente.h"
 
-typedef struct
-{
-    Paciente **bancoPacientes;
-    int tamBanco;
-    int tamBancoAlocado;
-} Gerenciador;
+typedef struct Gerenciador Gerenciador;
 
 /*
 Função que cria uma estrutura Gerenciador (alocando toda memória necessária), inicializa o que for necessário

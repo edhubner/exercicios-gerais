@@ -3,6 +3,12 @@
 #include <string.h>
 #include "gerenciador.h"
 
+struct Gerenciador {
+    Paciente **bancoPacientes;
+    int tamBanco;
+    int tamBancoAlocado;
+};
+
 /*
 Função que cria uma estrutura Gerenciador (alocando toda memória necessária), inicializa o que for necessário
 e retorna o ponteiro para a estrutura criada.

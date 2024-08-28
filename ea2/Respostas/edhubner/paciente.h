@@ -7,16 +7,7 @@
 #define TAM_NOME 100
 #define TAM_SUS 19
 
-typedef struct
-{
-    char *nome;            // salva o nome do paciente
-    Data *dataNasc;        // salva a data de nascimento do paciente
-    char *cartaoSus;       // salva o cartão do SUS do paciente
-    char genero;           // salva o gênero do paciente
-    Lesao **lesoes;        // salva as lesões do paciente
-    int qtdLesoes;         // salva a quantidade de lesões do paciente
-    int qtdLesoesAlocadas; // controla a quantidade de lesões alocadas
-} Paciente;
+typedef struct Paciente Paciente;
 
 /*
 Função que cria uma estrutura Paciente (alocando memória para o que for necessário), lê os valores da entrada padrão
