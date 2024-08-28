@@ -29,8 +29,8 @@ void adicionaPacienteBancoGerenciador(Gerenciador *g, Paciente *p) {
         g->tamBancoAlocado++;
         g->bancoPacientes = (Paciente**) realloc(g->bancoPacientes, g->tamBancoAlocado * sizeof(Paciente*));
     }
+    g->bancoPacientes[g->tamBanco] = p;
     g->tamBanco++;
-    g->bancoPacientes[g->tamBancoAlocado - 1] = p;
 }
 
 /*
@@ -39,15 +39,11 @@ Se não encontrar o paciente, retorna NULL.
 */
 Paciente *getPacientePeloSUSBancoGerenciador(Gerenciador *g, char *sus) {
     // certo
-    Paciente* p = NULL;
-
     for (int i = 0; i < g->tamBanco; i++) {
-        if (strcmp(sus, getCartaoSusPaciente(g->bancoPacientes[i])) == 0) {
-            p = g->bancoPacientes[i];
-            break;
-        }
+        if (strcmp(sus, getCartaoSusPaciente(g->bancoPacientes[i])) == 0)
+            return g->bancoPacientes[i];
     }
-    return p;
+    return NULL;
 }
 
 /*
@@ -56,7 +52,7 @@ pacientes do gerenciador. Essa leitura seguem as regras descritas na descrição
 Perceba que o banco salva apenas os pacientes, as lesões são salvas nos pacientes.
 */
 void preencheBancoPacientesGerenciador(Gerenciador *ger) {
-    // Acrescentou \n ao final dos Scanfs E acrescentei if (p != NULL) 
+    // Acrescentou \n ao final dos Scanfs E acrescentei if (p != NULL) e faltou o free cSus e faltou um free l se p == NULL
     char op = 'a';
     char* cSus;
     Paciente* p;
@@ -73,8 +69,11 @@ void preencheBancoPacientesGerenciador(Gerenciador *ger) {
             scanf("%[^\n]\n", cSus);
             l = leLesao();
             p = getPacientePeloSUSBancoGerenciador(ger, cSus);
+            free(cSus);
             if (p != NULL)
                 adicionaLesaoPaciente(p, l);
+            else
+                liberaLesao(l);
         }
         else if (op == 'F') {
             break;
@@ -88,16 +87,12 @@ Ela verifica se o ponteiro passado é nulo antes de tentar liberar a memória.
 */
 void liberaGerenciador(Gerenciador *g) {
     //
-    for (int i = 0; i < g->tamBancoAlocado; i++) {
-        if (g->bancoPacientes[i] != NULL)
+    if (g != NULL) {
+        for (int i = 0; i < g->tamBanco; i++)
             liberaPaciente(g->bancoPacientes[i]);
-    }
-
-    if (g->bancoPacientes != NULL)
         free(g->bancoPacientes);
-
-    if (g != NULL)
         free(g);
+    }
 }
 
 /*
@@ -105,12 +100,17 @@ Função que calcula a média de idade dos pacientes do banco de pacientes do ge
 Para isso, é necessário calcular a idade de cada paciente em relação a data de referência.
 */
 int calculaMediaIdadePacientesBancoGerenciador(Gerenciador *g) {
-    //
+    //Nao estava liberando a dataAtual e nao existe DIV/0
+    if (g->tamBanco == 0)
+        return 0;
+
     int soma = 0;
     Data* dataAtual = criaData(DIA_BASE, MES_BASE, ANO_BASE);
 
     for (int i = 0; i < g->tamBanco; i++)
         soma += calculaIdadePaciente(g->bancoPacientes[i], dataAtual);
+    
+    liberaData(dataAtual);
     
     return soma / g->tamBanco;
 }
@@ -133,9 +133,8 @@ int calculaQtdLesoesPacientesBancoGerenciador(Gerenciador *g) {
     //
     int totalLesoes = 0;
 
-    for (int i = 0; i < g->tamBanco; i++) {
+    for (int i = 0; i < g->tamBanco; i++)
         totalLesoes += getQtdLesoesPaciente(g->bancoPacientes[i]);
-    }
 
     return totalLesoes;
 }
@@ -148,9 +147,8 @@ int calculaQtdCirurgiaPacientesBancoGerenciador(Gerenciador *g) {
     //
     int totalCirurgias = 0;
 
-    for (int i = 0; i < g->tamBanco; i++){
+    for (int i = 0; i < g->tamBanco; i++)
         totalCirurgias += getQtdCirurgiasPaciente(g->bancoPacientes[i]);
-    }
 
     return totalCirurgias;
 }

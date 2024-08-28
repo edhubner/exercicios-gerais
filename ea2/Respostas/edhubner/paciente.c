@@ -69,8 +69,9 @@ void adicionaLesaoPaciente(Paciente *p, Lesao *l) {
         p->lesoes = (Lesao**) realloc(p->lesoes, p->qtdLesoesAlocadas * sizeof(Lesao*));
     }
 
+    p->lesoes[p->qtdLesoes] = l;
     p->qtdLesoes++;
-    p->lesoes[p->qtdLesoesAlocadas - 1] = l;
+
 }
 
 /*
